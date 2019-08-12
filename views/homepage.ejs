@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><%= tagline %> | WAVN</title>
+	<% include ./head %>
+	
+</head>
+<body>
+	<div class="menu-x">
+	<div class="grid-container">
+		<div class=" grid-x grid-margin-x align-middle">
+			<div class="logo cell shrink">
+				<a href="/" title="Go to Home Page" ><span></span></a>
+			</div>
+			<div class="cell auto"></div>
+			<div id="menu" class="cell shrink">
+				<ul class="flex_wa ">
+					<% menu.forEach(function(itemx){ %>
+					<li><a href="#"><%= itemx %></a></li>
+					<% }); %>
+				</ul>
+			</div>
+		</div>
+
+	</div>
+	</div>
+	<script src="master.js" type="text/babel"></script>
+</body>
+</html>
