@@ -1,8 +1,13 @@
 class Storynew extends React.Component {
+	open() {
+		$.post('/open', { idOpen: this.props.id }, function(data){
+			#...
+		});
+	}
 	render() {
 		return(
 			<div className="cell small-3">
-				<div className="content">
+				<div className="content" onClick={this.open}>
 					<img src={this.props.cover} alt=""/>
 					<div className="content-overlay"></div>
 					<div className="content-text">
@@ -30,7 +35,7 @@ class Liststory extends React.Component {
 		 <div class="grid-x grid-padding-x">
 		 {
 		 	this.state.mang.map(function(story, index){
-		 		return <Storynew key={index} cover={story.cover} titles={story.titles} descr= {story.descr}></Storynew>
+		 		return <Storynew key={index} id={index} cover={story.cover} titles={story.titles} descr= {story.descr}></Storynew>
 		 	})
 		 }
 		 </div>	
