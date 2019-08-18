@@ -1,7 +1,14 @@
+var list;
 class Storynew extends React.Component {
+	constructor(props){
+		super(props);
+		this.open = this.open.bind(this);
+	}
 	open() {
+		var that = list;
 		$.post('/open', { idOpen: this.props.id }, function(data){
-			#...
+			console.log({data});
+			that.setState({viewContent: true});
 		});
 	}
 	render() {
@@ -23,14 +30,23 @@ class Storynew extends React.Component {
 class Liststory extends React.Component {
 	constructor(props) {
 		super(props);
+		list = this;
 		this.state = {
 			mang: [
 			{titles: "3 sai lầm khi đầu tư tài chính", cover: "/img/1.jpg", descr: "Trong tài chính, nếu bạn chỉ đầu tư sai một bước thì bạn sẽ .." },
 			{titles: "3 sai lầm khi đầu tư tài chính", cover: "/img/1.jpg", descr: "Trong tài chính, nếu bạn chỉ đầu tư sai một bước thì bạn sẽ .." },
 			],
+			viewContent: false,
 		};
 	}
+	
 	render() {
+		if (this.state.viewContent) {
+			return( 
+				<div>View Content</div>
+			)
+		}
+		else {
 		return(
 		 <div class="grid-x grid-padding-x">
 		 {
@@ -38,8 +54,9 @@ class Liststory extends React.Component {
 		 		return <Storynew key={index} id={index} cover={story.cover} titles={story.titles} descr= {story.descr}></Storynew>
 		 	})
 		 }
-		 </div>	
-		)
+		 </div>
+		 	)
+		}
 	};
 }
 

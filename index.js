@@ -17,6 +17,10 @@ app.get('/', function(req, res) {
 	});
 });
 
+app.post('/open', parser, function(req, res){
+	var idOpen = req.body.idOpen;
+	res.send(idOpen);
+});
 
 // let myShortenFile = require ("./public/module/logic");
 // myShortenFile.shorten()
