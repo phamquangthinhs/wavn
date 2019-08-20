@@ -7,7 +7,6 @@ class Storynew extends React.Component {
 	open() {
 		var that = list;
 		$.post('/open', { idOpen: this.props.id }, function(data){
-			console.log({data});
 			that.setState({viewContent: true});
 		});
 	}
@@ -26,7 +25,23 @@ class Storynew extends React.Component {
 		)
 	};
 }
-
+class Content extends React.Component {
+	constructor(props) {
+		super(props);
+		this.returnx = this.returnx.bind(this);
+	}
+	returnx() {
+		var that = list;
+		that.setState({viewContent: false});
+	}
+	render() {
+		return(
+			<div>
+				<button onClick={this.returnx}>{"<< Quay lại"}</button>
+			</div>
+		)
+	};
+}
 class Liststory extends React.Component {
 	constructor(props) {
 		super(props);
@@ -42,9 +57,7 @@ class Liststory extends React.Component {
 	
 	render() {
 		if (this.state.viewContent) {
-			return( 
-				<div>View Content</div>
-			)
+			return <Content />
 		}
 		else {
 		return(

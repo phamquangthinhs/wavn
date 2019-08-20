@@ -23,15 +23,19 @@
     src: url('../../font/Aleo-Light.otf');
 }
 
+@xam: #f2f2f2;
+@xams: #f9f9f9;
+@cam: #eea272 ;
+
 .menu-x {
-	background-color: #f2f2f2;
+	background-color: @xam;
 	ul {
 		margin: 0;
 		li {
 			text-align: center;
 			padding: 5px 15px;
 			&:hover {
-				background-color: #f9f9f9;
+				background-color: @xams;
 				.bd-radius;
 				cursor: pointer;
 			}
@@ -71,16 +75,16 @@
 				margin-top: 7px;
 			}
 			&:hover {
-				background-color: #f9f9f9;
+				background-color: @xams;
 				.bd-radius;
 			}
 		}
 		.activ {
-			background-color: #eea272;
+			background-color: @cam;
 			color: #fff;
 			.bd-radius;
 			&:hover {
-				background-color: #eea272;
+				background-color: @cam;
 			}
 		}
 	}
@@ -88,10 +92,10 @@
 .content-x {
 	.content {
 		height: 279px;
-		background-color: #f2f2f2;
+		background-color: @xam;
 		.bd-radius;
 		cursor: pointer;
-		border: 2px solid #f2f2f2;
+		border: 2px solid @xam;
 		position: relative;
 		overflow: hidden;
 		&:hover {
